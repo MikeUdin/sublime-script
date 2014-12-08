@@ -321,10 +321,7 @@ class CodeExecuterMessageHandler(c4d.plugins.MessageData):
         doc = c4d.documents.GetActiveDocument()
         op = doc.GetActiveObject()
         mat = doc.GetActiveMaterial()
-        tp = doc.GetParticleSystem()
-        return {
-            '__name__': '__main__',
-            'doc': doc, 'op': op, 'mat': mat, 'tp': tp}
+        return {'__name__': '__main__', 'doc': doc, 'op': op, 'mat': mat}
 
     def on_shutdown(self):
         if self.thread:
