@@ -342,7 +342,9 @@ class CodeExecuterMessageHandler(c4d.plugins.MessageData):
                 if not self.queue: break
                 source = self.queue.popleft()
             try:
-                print "RemoteCodeRunner: running", source
+                # print "RemoteCodeRunner: running", source
+                # Less verbose printing to the c4d console
+                print "ScriptServer: running"
                 scope = self.get_scope()
                 source.execute(scope)
             except Exception as exc:
