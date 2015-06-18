@@ -27,3 +27,9 @@ package directory. You can open this directory by heading to Sublime
 
 3. Start Cinema 4D and run the "Tools > Send Python Code" command from
 Sublime! The default settings should work fine.
+
+## Disclaimer
+
+Note that having this plugin installed could make your computer
+vulnerable to targeted attacks. Use only for development purpose and
+do not use on production servers.
