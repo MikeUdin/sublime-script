@@ -298,7 +298,7 @@ plugins = []
 class CodeExecuterMessageHandler(c4d.plugins.MessageData):
 
     PLUGIN_ID = 1033731
-    PLUGIN_NAME = "Remote Code Executor"
+    PLUGIN_NAME = "SublimeScript"
 
     def __init__(self, host, port, password):
         super(CodeExecuterMessageHandler, self).__init__()
@@ -306,7 +306,7 @@ class CodeExecuterMessageHandler(c4d.plugins.MessageData):
         self.queue_lock = threading.Lock()
         self.thread = ServerThread(self.queue, self.queue_lock, host, port, password)
 
-        print "Binding Remote Code Executor Server to {0}:{1} ...".format(host, port)
+        print "Binding SublimeScript Server to {0}:{1} ...".format(host, port)
         try:
             self.thread.start()
         except socket.error as exc:
@@ -325,7 +325,7 @@ class CodeExecuterMessageHandler(c4d.plugins.MessageData):
 
     def on_shutdown(self):
         if self.thread:
-            print "Shutting down Remote Code Executor Server thread ..."
+            print "Shutting down SublimeScript Server thread ..."
             self.thread.running = False
             self.thread.join()
             self.thread = None
@@ -343,7 +343,7 @@ class CodeExecuterMessageHandler(c4d.plugins.MessageData):
                 source = self.queue.popleft()
             try:
                 # For more verbose printing replace next line with: "ScriptServer: running", source
-                print "ScriptServer: running"
+                print "SublimeScript Server: running"
                 scope = self.get_scope()
                 source.execute(scope)
             except Exception as exc:
