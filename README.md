@@ -14,15 +14,15 @@ your Cinema 4D plugin directory.
     ```
     Cinema 4D RXX/
         plugins/
-            remote-code-runner/
-                remote_code_runner.pyp
+            sublime-script/
+                SublimeScriptServer.pyp
                 sublime-plugin/
-                    RemoteCodeRunner/
+                    SublimeScriptSender/
                         ...
                 ...
     ```
 
-2. Copy (or symlink) the `RemoteCodeRunner` folder to your sublime
+2. Copy (or symlink) the `SublimeScriptSender` folder to your sublime
 package directory. You can open this directory by heading to Sublime
 "Preferences > Browse Packages ...".
 
