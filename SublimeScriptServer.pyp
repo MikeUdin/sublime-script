@@ -27,7 +27,7 @@ __version__ = '1.0'
 #                      Shared Code (SocketFile wrapper class)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-import sys
+import sys, os
 if sys.version_info[0] < 3:
     try: from cStringIO import StringIO as BytesIO
     except ImportError: from StringIO import StringIO as BytesIO
@@ -140,6 +140,7 @@ class SourceObject(object):
         Execute the source in the specified scope.
         """
 
+        sys.path.append(os.path.dirname(self.filename))
         code = compile(self.source, self.filename, 'exec')
         exec code in scope
 
